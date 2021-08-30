@@ -1,0 +1,24 @@
+.burger-button {
+  &__middle {
+    background: black;
+    display: inline-block;
+    height: 2px;
+    width: 26px;
+
+    &::after {
+      content: " ";
+      background: black;
+      display: inline-block;
+      height: 2px;
+      width: 26px;
+    }
+
+    &::before {
+      content: " ";
+      background: black;
+      display: inline-block;
+      height: 2px;
+      width: 26px;
+    }
+  }
+}

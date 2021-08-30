@@ -1,0 +1,10 @@
+@import "./config";
+@import "./header";
+@import "./posts";
+// responsiveness needs to be at the bottom to override the original properties
+@import "./reponsiveness";
+
+.container {
+  max-width: 80vw;
+  margin: 0 auto;
+}

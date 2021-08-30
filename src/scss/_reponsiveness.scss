@@ -1,0 +1,43 @@
+@import "./config";
+
+@include tablet {
+  .header {
+    &__container {
+      margin: 20px auto 0 auto;
+      padding: 2rem;
+      width: 80vw;
+    }
+
+    &__name {
+      font-family: "Permanent Marker", cursive;
+      font-size: 4rem;
+      margin-left: 10px;
+      margin-right: 16px;
+    }
+
+    &__blog {
+      font-size: 3.6rem;
+      font-weight: 200;
+    }
+  }
+
+  .posts {
+    &__container {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      justify-items: center;
+      width: 80vw;
+    }
+  }
+}
+
+@include desktop {
+  .posts {
+    &__container {
+      display: grid;
+      grid-template-columns: 1fr;
+      justify-items: start;
+      width: 80vw;
+    }
+  }
+}
