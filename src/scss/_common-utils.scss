@@ -1,0 +1,11 @@
+.loading {
+  &__container {
+    margin: 4rem auto 0 auto;
+    max-width: 400px;
+    text-align: center;
+  }
+
+  & p {
+    font-size: 3rem;
+  }
+}

@@ -1,7 +1,7 @@
 import React from "react";
 import { imagesApiUrl } from "../config.json";
 
-const Post = () => {
+const Post = ({ post }) => {
   function getRandomInt(max) {
     return Math.floor(Math.random() * max);
   }
@@ -16,11 +16,8 @@ const Post = () => {
         <img className="post__image" src={getRandomImage()} alt="" />
       </div>
       <div className="post__content">
-        <h3 className="post__title">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus,
-          expedita.
-        </h3>
-        <span className="post__author">Author</span>
+        <h3 className="post__title">{post.title}</h3>
+        <span className="post__author">{post.author}</span>
       </div>
     </div>
   );

@@ -1,8 +1,8 @@
-export function getData() {
-  const apiUrl = "http://127.0.0.1:8000/api";
-  const data = await fetch(apiUrl)
-    .then((response) => response.json())
-    .then((data) => console.log(data));
+import { serverApi } from "../config.json";
+
+export async function getPosts() {
+  const apiCall = await fetch(serverApi);
+  const data = apiCall.json();
 
   return data;
 }
