@@ -1,10 +1,11 @@
 import React from "react";
+import Post from "./Post";
 
 const PostsContainer = () => {
   return (
     <div className="posts__container">
-      <div className="posts__frame"></div>
-      <div className="posts__frame"></div>
+      <Post />
+      <Post />
     </div>
   );
 };

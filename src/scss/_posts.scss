@@ -3,16 +3,47 @@
     display: grid;
     grid-template-columns: 1fr;
     justify-items: center;
-    margin: 80px auto 0 auto;
+    margin: 80px auto 40px auto;
     overflow: hidden;
     row-gap: 40px;
     width: 90vw;
   }
+}
 
+.post {
   &__frame {
-    background: gold;
-    border: 1px solid black;
-    height: 200px;
-    width: 300px;
+    display: grid;
+    grid-template-rows: 1fr, auto;
+    padding: 1rem;
+    width: 400px;
+
+    &:hover {
+      border: 1px solid black;
+    }
+  }
+
+  &__image__container {
+    width: 100%;
+  }
+
+  &__image {
+    height: 100%;
+    object-fit: cover;
+    width: 100%;
+  }
+
+  &__title {
+    font-size: 2.8rem;
+    font-weight: 400;
+    letter-spacing: 0.1rem;
+    line-height: 3rem;
+    margin-top: 2rem;
+  }
+
+  &__author {
+    display: inline-block;
+    font-size: 1.2rem;
+    margin-top: 1.6rem;
+    text-transform: uppercase;
   }
 }
