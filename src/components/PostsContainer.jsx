@@ -9,7 +9,6 @@ const PostsContainer = () => {
 
   const fetchData = async () => {
     const data = await db.getPosts();
-    console.log(data);
     setPosts(data);
     setLoaded(true);
   };
