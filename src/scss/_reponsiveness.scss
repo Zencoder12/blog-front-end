@@ -1,9 +1,14 @@
 @import "./config";
 
 @include tablet {
+  .container {
+    margin: 20px 0;
+    width: 60vw;
+  }
+
   .header {
     &__container {
-      margin: 20px auto 0 auto;
+      margin: 12px auto 0 auto;
       padding: 2rem;
       width: 80vw;
     }
@@ -32,12 +37,34 @@
 }
 
 @include desktop {
+  .container {
+    width: 40vw;
+  }
+
   .posts {
     &__container {
       display: grid;
       grid-template-columns: 1fr;
       justify-items: start;
       width: 80vw;
+    }
+  }
+
+  .form {
+    & h2 {
+      font-size: 2.4rem;
+    }
+
+    & h3 {
+      font-size: 1.6rem;
+    }
+
+    &__label {
+      font-size: 1.6rem;
+    }
+
+    &__group {
+      margin-bottom: 3rem;
     }
   }
 }

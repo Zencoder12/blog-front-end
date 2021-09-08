@@ -2,10 +2,15 @@
 @import "./header";
 @import "./posts";
 @import "./common-utils";
+@import "./form";
 // responsiveness needs to be at the bottom to override the original properties
 @import "./reponsiveness";
 
 .container {
-  max-width: 80vw;
-  margin: 0 auto;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: 80vh;
+  justify-content: center;
+  margin: 20px auto 20px auto;
 }
