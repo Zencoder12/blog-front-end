@@ -1,6 +1,14 @@
 import React from "react";
 
-const FormGroup = ({ name, label, value, onChange, placeholder, type }) => {
+const FormGroup = ({
+  name,
+  error,
+  label,
+  value,
+  onChange,
+  placeholder,
+  type,
+}) => {
   return (
     <div className="form form__group">
       <label className="form form__label" htmlFor={name}>
@@ -15,6 +23,7 @@ const FormGroup = ({ name, label, value, onChange, placeholder, type }) => {
         onChange={onChange}
         placeholder={placeholder}
       />
+      {error && <div>{error}</div>}
     </div>
   );
 };
