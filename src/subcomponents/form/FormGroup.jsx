@@ -23,7 +23,7 @@ const FormGroup = ({
         onChange={onChange}
         placeholder={placeholder}
       />
-      {error && <div>{error}</div>}
+      {error && <div className="form form__error">{error}</div>}
     </div>
   );
 };

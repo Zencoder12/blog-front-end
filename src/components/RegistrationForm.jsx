@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import Joi from "joi-browser";
 import FormGroup from "../subcomponents/form/FormGroup";
 
-const Form = () => {
+const RegistrationForm = () => {
   const [state, setState] = useState({
-    account: { email: "", username: "", password: "" },
+    data: { email: "", username: "", password: "" },
     errors: {},
   });
 
@@ -15,18 +15,22 @@ const Form = () => {
     if (errorMessage) errors[input.name] = errorMessage;
     else delete errors[input.name];
 
-    const account = { ...state.account };
-    account[input.name] = input.value;
-    setState({ account, errors });
+    const data = { ...state.data };
+    data[input.name] = input.value;
+    setState({ data, errors });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const account = { ...state.account };
+    const data = { ...state.data };
     const errors = validate();
-    setState({ account, errors: errors || {} });
+    setState({ data, errors: errors || {} });
     if (errors) return;
 
+    doSubmit();
+  };
+
+  const doSubmit = () => {
     console.log("submited");
   };
 
@@ -37,7 +41,7 @@ const Form = () => {
   };
 
   const validate = () => {
-    const { error } = Joi.validate(state.account, stateSchema, {
+    const { error } = Joi.validate(state.data, stateSchema, {
       abortEarly: false,
     });
 
@@ -60,7 +64,21 @@ const Form = () => {
     return error ? error.details[0].message : null;
   };
 
-  const renderButton = () => {
+  const renderFormGroup = (name, label, placeholder, type = "text") => {
+    return (
+      <FormGroup
+        error={errors[name]}
+        label={label}
+        name={name}
+        onChange={handleChange}
+        placeholder={placeholder}
+        type={type}
+        value={data[name]}
+      />
+    );
+  };
+
+  const renderSubmitButton = () => {
     if (Object.keys(errors).length === 0 && !isAnyInputEmpty()) {
       return (
         <button className="form form__btn" onClick={handleSubmit}>
@@ -82,7 +100,7 @@ const Form = () => {
   function isAnyInputEmpty() {
     let result = false;
 
-    for (let property of Object.values(account)) {
+    for (let property of Object.values(data)) {
       if (property.length === 0) {
         result = true;
         return result;
@@ -92,7 +110,7 @@ const Form = () => {
     return result;
   }
 
-  const { account, errors } = state;
+  const { data, errors } = state;
 
   return (
     <div className="container">
@@ -101,37 +119,18 @@ const Form = () => {
           <h2>Register</h2>
           <h3>Want to register, fill up this form!</h3>
         </header>
-        <FormGroup
-          error={errors.username}
-          label="Username"
-          name="username"
-          onChange={handleChange}
-          placeholder="Type your mailbox"
-          type="text"
-          value={account.username}
-        />
-        <FormGroup
-          error={errors.email}
-          label="Email Address"
-          name="email"
-          onChange={handleChange}
-          placeholder="Your full name"
-          type="email"
-          value={account.email}
-        />
-        <FormGroup
-          error={errors.password}
-          label="Password"
-          name="password"
-          onChange={handleChange}
-          placeholder="Choose your password"
-          type="password"
-          value={account.password}
-        />
-        {renderButton()}
+        {renderFormGroup("username", "Username", "Type your mailbox")}
+        {renderFormGroup("email", "Email Address", "Your full name", "email")}
+        {renderFormGroup(
+          "password",
+          "Password",
+          "Choose your password",
+          "password"
+        )}
+        {renderSubmitButton()}
       </form>
     </div>
   );
 };
 
-export default Form;
+export default RegistrationForm;

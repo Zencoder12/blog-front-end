@@ -1,7 +1,7 @@
 import React from "react";
 import Header from "./components/Header";
 import PostsContainer from "./components/PostsContainer";
-import Form from "./components/Form";
+import Form from "./components/RegistrationForm";
 
 function App() {
   return (
