@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import Joi from "joi-browser";
+import { axiosInstance } from "../services/db";
 import FormGroup from "../subcomponents/form/FormGroup";
 
 const RegistrationForm = () => {
   const [state, setState] = useState({
-    data: { email: "", username: "", password: "" },
+    account: { email: "", username: "", password: "" },
     errors: {},
   });
 
@@ -15,23 +16,28 @@ const RegistrationForm = () => {
     if (errorMessage) errors[input.name] = errorMessage;
     else delete errors[input.name];
 
-    const data = { ...state.data };
-    data[input.name] = input.value;
-    setState({ data, errors });
+    const account = { ...state.account };
+    account[input.name] = input.value;
+    setState({ account, errors });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const data = { ...state.data };
+    const account = { ...state.account };
     const errors = validate();
-    setState({ data, errors: errors || {} });
+    setState({ account, errors: errors || {} });
     if (errors) return;
 
-    doSubmit();
-  };
-
-  const doSubmit = () => {
-    console.log("submited");
+    axiosInstance
+      .post("user/register/", {
+        email: account.email,
+        user_name: account.username,
+        password: account.password,
+      })
+      .then((res) => {
+        console.log(res);
+        console.log(res.data);
+      });
   };
 
   const stateSchema = {
@@ -41,7 +47,7 @@ const RegistrationForm = () => {
   };
 
   const validate = () => {
-    const { error } = Joi.validate(state.data, stateSchema, {
+    const { error } = Joi.validate(state.account, stateSchema, {
       abortEarly: false,
     });
 
@@ -73,7 +79,7 @@ const RegistrationForm = () => {
         onChange={handleChange}
         placeholder={placeholder}
         type={type}
-        value={data[name]}
+        value={account[name]}
       />
     );
   };
@@ -100,7 +106,7 @@ const RegistrationForm = () => {
   function isAnyInputEmpty() {
     let result = false;
 
-    for (let property of Object.values(data)) {
+    for (let property of Object.values(account)) {
       if (property.length === 0) {
         result = true;
         return result;
@@ -110,7 +116,7 @@ const RegistrationForm = () => {
     return result;
   }
 
-  const { data, errors } = state;
+  const { account, errors } = state;
 
   return (
     <div className="container">

@@ -1,13 +1,17 @@
 import React from "react";
+import { Route, Switch } from "react-router-dom";
 import Header from "./components/Header";
 import PostsContainer from "./components/PostsContainer";
-import Form from "./components/RegistrationForm";
+import RegistrationForm from "./components/RegistrationForm";
 
 function App() {
   return (
     <React.Fragment>
       <Header />
-      <Form />
+      <Switch>
+        <Route path="/home" component={PostsContainer} />
+        <Route path="/register" component={RegistrationForm} />
+      </Switch>
     </React.Fragment>
   );
 }
