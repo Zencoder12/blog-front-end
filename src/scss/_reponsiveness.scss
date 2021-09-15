@@ -34,6 +34,28 @@
       width: 80vw;
     }
   }
+
+  .post-page {
+    &__container {
+      width: 70vw;
+    }
+
+    &__content-container {
+      column-gap: 6rem;
+      display: flex;
+      flex-direction: row;
+    }
+
+    &__image-container,
+    &__text-container {
+      flex-basis: 0;
+      flex-grow: 1;
+    }
+
+    &__image-container {
+      align-self: flex-start;
+    }
+  }
 }
 
 @include desktop {
@@ -83,7 +105,11 @@
     }
 
     &__group {
-      margin-bottom: 3rem;
+      margin-bottom: 2rem;
+    }
+
+    &__btn {
+      font-size: 2rem;
     }
   }
 }

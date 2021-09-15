@@ -1,0 +1,45 @@
+.post-page {
+  &__container {
+    margin: 4rem auto 4rem;
+    text-align: center;
+    width: 85vw;
+  }
+
+  &__title {
+    color: darkgray;
+    font-size: 3rem;
+    font-style: italic;
+    font-weight: 200;
+    margin-bottom: 3rem;
+    padding-bottom: 2rem;
+  }
+
+  &__content-container {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__text-container {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__content {
+    font-size: 1.8rem;
+    line-height: 2.4rem;
+    margin-bottom: 3rem;
+    text-align: start;
+  }
+
+  &__author {
+    font-size: 2rem;
+    margin-bottom: 3rem;
+  }
+
+  &__image {
+    border-radius: 6px;
+    max-width: 100%;
+  }
+}
