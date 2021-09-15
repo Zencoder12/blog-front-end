@@ -50,6 +50,25 @@
     }
   }
 
+  .post {
+    &__frame {
+      display: grid;
+      grid-template-columns: 400px auto;
+      column-gap: 20px;
+      width: 80vw;
+    }
+
+    &__content {
+      justify-content: space-between;
+    }
+
+    &__title {
+      font-size: 3.6rem;
+      letter-spacing: 0.4rem;
+      line-height: 4rem;
+    }
+  }
+
   .form {
     & h2 {
       font-size: 2.4rem;
