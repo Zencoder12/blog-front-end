@@ -1,3 +1,5 @@
+@import "./config";
+
 .post-page {
   &__container {
     margin: 4rem auto 4rem;
@@ -27,7 +29,9 @@
   }
 
   &__content {
+    color: $body-text-color;
     font-size: 1.8rem;
+    font-weight: 300;
     line-height: 2.4rem;
     margin-bottom: 3rem;
     text-align: start;
