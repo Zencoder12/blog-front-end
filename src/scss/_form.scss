@@ -29,10 +29,6 @@
   &__group {
     width: 80%;
     margin-bottom: 10px;
-
-    &:nth-child(4) {
-      margin-bottom: 4rem;
-    }
   }
 
   &__label {
@@ -53,6 +49,7 @@
     border-radius: 50px;
     color: #fff;
     margin-bottom: 2rem;
+    margin-top: 4rem;
     outline: 0;
     overflow: hidden;
     padding: 1.4rem 1rem;

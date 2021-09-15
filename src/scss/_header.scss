@@ -4,6 +4,7 @@
   &__container {
     border-bottom: 1px solid black;
     padding: 1rem;
+    position: relative;
   }
 
   &__name {
@@ -17,4 +18,10 @@
     font-size: 1.6rem;
     font-weight: 200;
   }
+}
+
+.btn-logout {
+  position: absolute;
+  right: 0;
+  top: 45px;
 }

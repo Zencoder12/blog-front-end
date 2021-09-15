@@ -2,12 +2,15 @@ import React, { useState } from "react";
 import Joi from "joi-browser";
 import { axiosInstance } from "../services/db";
 import FormGroup from "../subcomponents/form/FormGroup";
+import { useHistory } from "react-router-dom";
 
-const RegistrationForm = () => {
+const LoginForm = () => {
   const [state, setState] = useState({
-    account: { email: "", username: "", password: "" },
+    account: { email: "", password: "" },
     errors: {},
   });
+
+  const history = useHistory();
 
   const handleChange = ({ currentTarget: input }) => {
     const errors = { ...state.errors };
@@ -29,20 +32,22 @@ const RegistrationForm = () => {
     if (errors) return;
 
     axiosInstance
-      .post("user/register/", {
+      .post("token/", {
         email: account.email,
-        user_name: account.username,
         password: account.password,
       })
       .then((res) => {
-        console.log(res);
         console.log(res.data);
+        localStorage.setItem("access_token", res.data.access);
+        localStorage.setItem("refresh_token", res.data.refresh);
+        axiosInstance.defaults.headers["Authorization"] =
+          "JWT " + localStorage.getItem("access_token");
+        history.push("/home");
       });
   };
 
   const stateSchema = {
     email: Joi.string().email().min(5).max(32).required().label("Email"),
-    username: Joi.string().min(5).max(32).required().label("Username"),
     password: Joi.string().min(5).max(32).required().label("Password"),
   };
 
@@ -98,7 +103,7 @@ const RegistrationForm = () => {
           disabled={true}
           onClick={handleSubmit}
         >
-          Register
+          Sign In
         </button>
       );
   };
@@ -122,10 +127,9 @@ const RegistrationForm = () => {
     <div className="container">
       <form className="form form__box">
         <header className="form form__header">
-          <h2>Register</h2>
-          <h3>Want to register, fill up this form!</h3>
+          <h2>Sign In</h2>
+          <h3>Please enter the required information.</h3>
         </header>
-        {renderFormGroup("username", "Username", "Your full name")}
         {renderFormGroup(
           "email",
           "Email Address",
@@ -144,4 +148,4 @@ const RegistrationForm = () => {
   );
 };
 
-export default RegistrationForm;
+export default LoginForm;
