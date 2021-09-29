@@ -43,6 +43,19 @@ const LoginForm = () => {
         axiosInstance.defaults.headers["Authorization"] =
           "JWT " + localStorage.getItem("access_token");
         history.push("/home");
+      })
+      .catch((error) => {
+        if (
+          error.response.status === 401 &&
+          error.response.statusText === "Unauthorized"
+        ) {
+          let errors = { ...state.errors };
+
+          errors.email =
+            "The provided credentials are invalid. Please try again.";
+
+          setState({ account, errors });
+        }
       });
   };
 

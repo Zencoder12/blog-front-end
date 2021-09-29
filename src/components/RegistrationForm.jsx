@@ -41,14 +41,16 @@ const RegistrationForm = () => {
       history.push("/login");
       alert("Registration succesfull. Please log in to start using the app.");
     } catch (error) {
-      const responseErrors = error.response.data;
-      const errors = { ...state.errors };
+      if (error.response.status === 400) {
+        const responseErrors = error.response.data;
+        const errors = { ...state.errors };
 
-      for (let [field, errorDescription] of Object.entries(responseErrors)) {
-        errors[field] = errorDescription;
+        for (let [field, errorDescription] of Object.entries(responseErrors)) {
+          errors[field] = errorDescription;
+        }
+
+        setState({ account, errors });
       }
-
-      setState({ account, errors: errors });
     }
   };
 

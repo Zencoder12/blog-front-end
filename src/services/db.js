@@ -26,6 +26,7 @@ axiosInstance.interceptors.response.use(
   },
   async function (error) {
     const originalRequest = error.config;
+    console.log(error.response);
 
     // unexpected response
     if (typeof error.response === "undefined") {
@@ -36,15 +37,16 @@ axiosInstance.interceptors.response.use(
       return Promise.reject(error);
     }
 
-    // not authenticated
     if (
       error.response.status === 401 &&
       originalRequest.url === serverApi + "token/refresh/"
     ) {
+      // not authenticated
       window.location.href = "/login/";
       return Promise.reject(error);
     }
 
+    // sent the token but the token was not valid
     if (
       error.response.data.code === "token_not_valid" &&
       error.response.status === 401 &&
