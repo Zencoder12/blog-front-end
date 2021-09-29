@@ -21,21 +21,22 @@ export const axiosInstance = axios.create({
 });
 
 axiosInstance.interceptors.response.use(
-  (response) => {
+  async (response) => {
     return response;
   },
   async function (error) {
     const originalRequest = error.config;
 
+    // unexpected response
     if (typeof error.response === "undefined") {
       alert(
-        "A server/network error occurred. " +
-          "Looks like CORS might be the problem. " +
+        "A server/network error occurred." +
           "Sorry about this - we will get it fixed shortly."
       );
       return Promise.reject(error);
     }
 
+    // not authenticated
     if (
       error.response.status === 401 &&
       originalRequest.url === serverApi + "token/refresh/"
@@ -52,7 +53,7 @@ axiosInstance.interceptors.response.use(
       const refreshToken = localStorage.getItem("refresh_token");
 
       if (refreshToken) {
-        const tokenParts = JSON.parse(atob(refreshToken.split(".")[1]));
+        const tokenParts = JSON.parse(refreshToken.split(".")[1]);
 
         // exp date in token is expressed in seconds, while now() returns milliseconds:
         const now = Math.ceil(Date.now() / 1000);

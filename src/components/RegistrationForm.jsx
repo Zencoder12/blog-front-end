@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router";
 import Joi from "joi-browser";
 import { axiosInstance } from "../services/db";
 import FormGroup from "../subcomponents/form/FormGroup";
@@ -8,6 +9,8 @@ const RegistrationForm = () => {
     account: { email: "", username: "", password: "" },
     errors: {},
   });
+
+  const history = useHistory();
 
   const handleChange = ({ currentTarget: input }) => {
     const errors = { ...state.errors };
@@ -21,23 +24,32 @@ const RegistrationForm = () => {
     setState({ account, errors });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const account = { ...state.account };
     const errors = validate();
     setState({ account, errors: errors || {} });
     if (errors) return;
 
-    axiosInstance
-      .post("user/register/", {
+    try {
+      await axiosInstance.post("user/register/", {
         email: account.email,
-        user_name: account.username,
+        username: account.username,
         password: account.password,
-      })
-      .then((res) => {
-        console.log(res);
-        console.log(res.data);
       });
+
+      history.push("/login");
+      alert("Registration succesfull. Please log in to start using the app.");
+    } catch (error) {
+      const responseErrors = error.response.data;
+      const errors = { ...state.errors };
+
+      for (let [field, errorDescription] of Object.entries(responseErrors)) {
+        errors[field] = errorDescription;
+      }
+
+      setState({ account, errors: errors });
+    }
   };
 
   const stateSchema = {
