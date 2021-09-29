@@ -3,14 +3,15 @@ import { NavLink } from "react-router-dom";
 import Post from "./Post";
 import * as db from "../services/db";
 import Loading from "./Loading";
+import { serverApi } from "../config.json";
 
 const Posts = () => {
   const [posts, setPosts] = useState([]);
   const [isLoaded, setLoaded] = useState(false);
 
   const fetchData = async () => {
-    const data = await db.getPosts();
-    setPosts(data);
+    const response = await db.axiosInstance.get(serverApi + "blog");
+    setPosts(response.data);
     setLoaded(true);
   };
 

@@ -1,13 +1,7 @@
 import { serverApi } from "../config.json";
 import axios from "axios";
 
-export async function getPosts() {
-  const apiCall = await fetch(serverApi);
-  const data = apiCall.json();
-
-  return data;
-}
-
+// defining the basic axios object
 export const axiosInstance = axios.create({
   baseURL: serverApi,
   timeout: 5000,
@@ -26,7 +20,6 @@ axiosInstance.interceptors.response.use(
   },
   async function (error) {
     const originalRequest = error.config;
-    console.log(error.response);
 
     // unexpected response
     if (typeof error.response === "undefined") {
@@ -37,36 +30,29 @@ axiosInstance.interceptors.response.use(
       return Promise.reject(error);
     }
 
+    // sent the token but the token was not valid, so use refresh token to get a
+    // new access token
     if (
       error.response.status === 401 &&
-      originalRequest.url === serverApi + "token/refresh/"
+      error.response.data.code === "token_not_valid"
     ) {
-      // not authenticated
-      window.location.href = "/login/";
-      return Promise.reject(error);
-    }
-
-    // sent the token but the token was not valid
-    if (
-      error.response.data.code === "token_not_valid" &&
-      error.response.status === 401 &&
-      error.response.statusText === "Unauthorized"
-    ) {
+      alert("retrieving new access token.");
       const refreshToken = localStorage.getItem("refresh_token");
 
+      // first, check if refresh token live date didn't expire
       if (refreshToken) {
-        const tokenParts = JSON.parse(refreshToken.split(".")[1]);
+        const tokenParts = JSON.parse(
+          Buffer.from(refreshToken.split(".")[1], "base64")
+        );
 
         // exp date in token is expressed in seconds, while now() returns milliseconds:
         const now = Math.ceil(Date.now() / 1000);
-        console.log(tokenParts.exp);
 
         if (tokenParts.exp > now) {
           return axiosInstance
             .post("/token/refresh/", { refresh: refreshToken })
             .then((response) => {
               localStorage.setItem("access_token", response.data.access);
-              localStorage.setItem("refresh_token", response.data.refresh);
 
               axiosInstance.defaults.headers["Authorization"] =
                 "JWT " + response.data.access;
@@ -79,11 +65,16 @@ axiosInstance.interceptors.response.use(
               console.log(err);
             });
         } else {
+          alert(
+            "Looks like your session expired. Please login again. Redirecting..."
+          );
           console.log("Refresh token is expired", tokenParts.exp, now);
           window.location.href = "/login/";
         }
       } else {
-        console.log("Refresh token not available.");
+        alert(
+          "Looks like your session expired. Please login again. Redirecting..."
+        );
         window.location.href = "/login/";
       }
     }
