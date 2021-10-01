@@ -10,6 +10,8 @@ $grey-text-color: rgb(126, 123, 123);
 
 // typography
 
+$search-bar-text-size: 1rem;
+
 html {
   font-size: 62.5%;
 }
@@ -30,6 +32,11 @@ body {
   &::before {
     box-sizing: border-box;
   }
+}
+
+a {
+  color: $body-text-color;
+  text-decoration: none;
 }
 
 // mixins

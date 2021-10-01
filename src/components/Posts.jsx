@@ -4,6 +4,7 @@ import Post from "./Post";
 import * as db from "../services/db";
 import Loading from "./Loading";
 import { serverApi } from "../config.json";
+import SearchBarMini from "./SearchBarMini";
 
 const Posts = () => {
   const [posts, setPosts] = useState([]);
@@ -21,17 +22,20 @@ const Posts = () => {
 
   if (isLoaded) {
     return (
-      <div className="posts posts__container">
-        {posts.map((post) => (
-          <NavLink
-            className="posts posts__link"
-            key={post.id}
-            to={"post/" + post.slug}
-          >
-            <Post post={post} />
-          </NavLink>
-        ))}
-      </div>
+      <React.Fragment>
+        <div className="posts posts__container">
+          <SearchBarMini />
+          {posts.map((post) => (
+            <NavLink
+              className="posts posts__link"
+              key={post.id}
+              to={"post/" + post.slug}
+            >
+              <Post post={post} />
+            </NavLink>
+          ))}
+        </div>
+      </React.Fragment>
     );
   } else return <Loading />;
 };

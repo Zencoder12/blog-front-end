@@ -1,0 +1,20 @@
+@import "./config";
+
+.search-bar-mini {
+  &__container {
+    border: 3px solid purple;
+    border-radius: 4px;
+    display: flex;
+    gap: 6px;
+    font-size: $search-bar-text-size;
+    padding: 0.5rem 1rem;
+    width: 350px;
+  }
+
+  &__input {
+    border: none;
+    flex-basis: 80%;
+    flex-grow: 1;
+    outline: none;
+  }
+}

@@ -72,6 +72,10 @@
       line-height: 3rem;
     }
   }
+
+  .search-bar-mini {
+    display: none;
+  }
 }
 
 @include desktop {
