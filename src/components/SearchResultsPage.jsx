@@ -6,11 +6,14 @@ import Loading from "./Loading";
 import { serverApi } from "../config.json";
 import SearchBar from "./SearchBar";
 
-const Posts = () => {
+const SearchResultsPage = () => {
   const searchBarSize = "small";
 
   const [posts, setPosts] = useState([]);
   const [isLoaded, setLoaded] = useState(false);
+
+  const search = localStorage.getItem("searchQuery");
+  console.log(localStorage.getItem("searchQuery"));
 
   const fetchData = async () => {
     const response = await db.axiosInstance.get(serverApi + "blog");
@@ -26,6 +29,7 @@ const Posts = () => {
     return (
       <React.Fragment>
         <div className="posts posts__container">
+          <SearchBar size={searchBarSize} />
           {posts.map((post) => (
             <NavLink
               className="posts posts__link"
@@ -41,4 +45,4 @@ const Posts = () => {
   } else return <Loading />;
 };
 
-export default Posts;
+export default SearchResultsPage;

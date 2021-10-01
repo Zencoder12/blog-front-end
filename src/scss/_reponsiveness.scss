@@ -86,11 +86,16 @@
   }
 
   .search-bar {
-    display: none;
-    padding: 0;
+    border: none;
+    gap: 20px;
+    width: 70%;
 
-    &--large {
-      display: flex;
+    &__input {
+      font-size: 2rem;
+    }
+
+    &__icon {
+      margin-top: 16px;
     }
   }
 }
