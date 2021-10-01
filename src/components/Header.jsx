@@ -7,8 +7,10 @@ const Header = () => {
 
   return (
     <div className="header__container">
-      <span className="header__name">Gallery</span>
-      <span className="header__blog">Blog</span>
+      <div>
+        <span className="header__name">Gallery</span>
+        <span className="header__blog">Blog</span>
+      </div>
       <SearchBar size={searchBarSize} />
       <Logout />
     </div>

@@ -1,6 +1,9 @@
 import React from "react";
 import { axiosInstance } from "../services/db";
 import { useHistory } from "react-router";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faDoorOpen } from "@fortawesome/free-solid-svg-icons";
+import { NavLink } from "react-router-dom";
 
 const Logout = () => {
   const history = useHistory();
@@ -21,9 +24,9 @@ const Logout = () => {
   };
 
   return (
-    <button className="btn-logout" onClick={handleLogout}>
-      Logout
-    </button>
+    <NavLink to="/home" onClick={handleLogout}>
+      <FontAwesomeIcon className="logout-icon" icon={faDoorOpen} size="4x" />
+    </NavLink>
   );
 };
 
