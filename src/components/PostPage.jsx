@@ -8,7 +8,7 @@ const PostPage = () => {
   const [data, setData] = useState({ post: [] });
 
   useEffect(() => {
-    axiosInstance.get(slug).then((res) => {
+    axiosInstance.get("blog/" + slug).then((res) => {
       setData({ post: res.data });
     });
   }, []);

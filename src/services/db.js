@@ -36,7 +36,6 @@ axiosInstance.interceptors.response.use(
       error.response.status === 401 &&
       error.response.data.code === "token_not_valid"
     ) {
-      alert("retrieving new access token.");
       const refreshToken = localStorage.getItem("refresh_token");
 
       // first, check if refresh token live date didn't expire

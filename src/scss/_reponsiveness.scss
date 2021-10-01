@@ -35,6 +35,17 @@
     }
   }
 
+  .post {
+    &__content {
+      justify-content: space-between;
+    }
+
+    &__author {
+      font-size: 2rem;
+      margin-bottom: 4rem;
+    }
+  }
+
   .post-page {
     &__container {
       width: 70vw;
@@ -86,13 +97,19 @@
     }
 
     &__content {
-      justify-content: space-between;
+      overflow: hidden;
     }
 
     &__title {
       font-size: 3.6rem;
       letter-spacing: 0.4rem;
       line-height: 4rem;
+    }
+
+    &__author {
+      display: inline-block;
+      font-size: 2rem;
+      vertical-align: text-bottom;
     }
   }
 

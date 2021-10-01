@@ -1,12 +1,15 @@
+@import "./config";
+
 .posts {
   &__container {
     display: grid;
     grid-template-columns: 1fr;
     justify-items: center;
-    margin: 80px auto 40px auto;
+    margin: 80px auto 60px auto;
     overflow: hidden;
     row-gap: 40px;
     width: 90vw;
+    @include box-shadow;
   }
 
   &__link {
@@ -21,9 +24,10 @@
     grid-template-rows: 1fr, auto;
     padding: 1rem;
     width: 400px;
+    @include box-shadow;
 
     &:hover {
-      border: 1px solid black;
+      border: 1px solid #999;
     }
   }
 
@@ -42,7 +46,6 @@
   &__content {
     display: flex;
     flex-direction: column;
-    justify-content: center;
   }
 
   &__title {
@@ -54,8 +57,10 @@
   }
 
   &__author {
+    color: $grey-text-color;
     display: inline-block;
     font-size: 1.2rem;
+    font-style: oblique;
     margin-top: 1.6rem;
     text-transform: uppercase;
   }

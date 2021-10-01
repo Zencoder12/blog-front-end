@@ -17,7 +17,7 @@ const Post = ({ post }) => {
       </div>
       <div className="post post__content">
         <h3 className="post post__title">{post.title}</h3>
-        <span className="post post__author">{post.author}</span>
+        <span className="post post__author">-- posted by {post.author} --</span>
       </div>
     </div>
   );

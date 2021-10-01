@@ -6,6 +6,7 @@ $secondary-color: #a8fffb;
 $complementary-color: #dc6e4f;
 $complementary-color-light: #f5a089;
 $body-text-color: #222222;
+$grey-text-color: rgb(126, 123, 123);
 
 // typography
 
@@ -32,6 +33,10 @@ body {
 }
 
 // mixins
+
+@mixin box-shadow {
+  box-shadow: rgba(33, 35, 38, 0.1) 0px 10px 10px -10px;
+}
 
 @mixin tablet {
   @media screen and (min-width: 768px) {
