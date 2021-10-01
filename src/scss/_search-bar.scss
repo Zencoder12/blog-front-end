@@ -1,24 +1,41 @@
 @import "./config";
 
 .search-bar {
-  &__container {
-    border: 3px solid purple;
-    border-radius: 4px;
-    display: flex;
-    gap: 6px;
-    font-size: $search-bar-text-size;
-    padding: 0.5rem 1rem;
-    width: 350px;
-  }
-  &--large {
-    border: none;
-    @include box-shadow;
-  }
+  border: 3px solid $purple-color;
+  border-radius: 4px;
+  display: flex;
+  gap: 6px;
+  font-size: 1.2rem;
+  padding: 0.5rem 1rem;
+  width: 350px;
 
   &__input {
     border: none;
     flex-basis: 80%;
     flex-grow: 1;
     outline: none;
+  }
+
+  &--large {
+    border: none;
+    gap: 20px;
+    width: 70%;
+    @include box-shadow;
+
+    &__input {
+      font-size: 2rem;
+      padding: 0.5rem 1rem;
+    }
+
+    &__icon {
+      color: whitesmoke;
+      margin-top: 8px;
+
+      &-container {
+        background-color: $purple-color;
+        box-shadow: rgba(235, 57, 226, 0.3) 0px 8px 24px;
+        padding: 0 1em;
+      }
+    }
   }
 }

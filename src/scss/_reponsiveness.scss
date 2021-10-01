@@ -17,6 +17,7 @@
   .header {
     &__container {
       margin: 12px auto 0 auto;
+      gap: 16px;
       padding: 2rem;
       width: 80vw;
     }
@@ -25,7 +26,6 @@
       font-family: "Permanent Marker", cursive;
       font-size: 4rem;
       margin-left: 10px;
-      margin-right: 16px;
     }
 
     &__blog {
@@ -83,9 +83,10 @@
 
   .search-bar {
     display: none;
+    padding: 0;
 
     &--large {
-      display: block;
+      display: flex;
     }
   }
 }

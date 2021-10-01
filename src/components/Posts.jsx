@@ -7,6 +7,8 @@ import { serverApi } from "../config.json";
 import SearchBar from "./SearchBar";
 
 const Posts = () => {
+  const searchBarSize = "small";
+
   const [posts, setPosts] = useState([]);
   const [isLoaded, setLoaded] = useState(false);
 
@@ -24,7 +26,7 @@ const Posts = () => {
     return (
       <React.Fragment>
         <div className="posts posts__container">
-          <SearchBar />
+          <SearchBar size={searchBarSize} />
           {posts.map((post) => (
             <NavLink
               className="posts posts__link"
