@@ -4,7 +4,7 @@ import Post from "./Post";
 import * as db from "../services/db";
 import Loading from "./Loading";
 import { serverApi } from "../config.json";
-import SearchBarMini from "./SearchBarMini";
+import SearchBar from "./SearchBar";
 
 const Posts = () => {
   const [posts, setPosts] = useState([]);
@@ -24,7 +24,7 @@ const Posts = () => {
     return (
       <React.Fragment>
         <div className="posts posts__container">
-          <SearchBarMini />
+          <SearchBar />
           {posts.map((post) => (
             <NavLink
               className="posts posts__link"

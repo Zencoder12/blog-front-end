@@ -1,6 +1,6 @@
 @import "./config";
 
-.search-bar-mini {
+.search-bar {
   &__container {
     border: 3px solid purple;
     border-radius: 4px;
@@ -9,6 +9,10 @@
     font-size: $search-bar-text-size;
     padding: 0.5rem 1rem;
     width: 350px;
+  }
+  &--large {
+    border: none;
+    @include box-shadow;
   }
 
   &__input {

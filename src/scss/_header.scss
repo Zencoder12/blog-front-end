@@ -3,6 +3,7 @@
 .header {
   &__container {
     border-bottom: 1px solid black;
+    display: flex;
     padding: 1rem;
     position: relative;
   }
@@ -17,6 +18,7 @@
   &__blog {
     font-size: 1.6rem;
     font-weight: 200;
+    margin-top: 8px;
   }
 }
 
