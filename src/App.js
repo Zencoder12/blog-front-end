@@ -6,15 +6,13 @@ import Posts from "./components/Posts";
 import RegistrationForm from "./components/RegistrationForm";
 import PostPage from "./components/PostPage";
 import SearchResultsPage from "./components/SearchResultsPage";
-import ArrowMenuIcon from "./subcomponents/menu/menu_icons/ArrowMenuIcon";
-import MinusMenuIcon from "./subcomponents/menu/menu_icons/MinusMenuIcon";
-import PlusMenuIcon from "./subcomponents/menu/menu_icons/plusMenuIcon";
+import Menu from "./components/Menu";
 
 function App() {
   return (
     <React.Fragment>
       <Header />
-      <ArrowMenuIcon />
+      <Menu />
       <Switch>
         <Route path="/login" component={LoginForm} />
         <Route path="/home" component={Posts} />

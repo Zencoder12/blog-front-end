@@ -1,6 +1,6 @@
-import MinusIcon from "../icons/MinusIcon";
+import PenIcon from "../icons/PenIcon";
 
-const MinusMenuIcon = ({ isHidden }) => {
+const PenMenuIcon = ({ isHidden }) => {
   return (
     <div className="menu-icon">
       <div
@@ -10,10 +10,10 @@ const MinusMenuIcon = ({ isHidden }) => {
             : "menu-icon menu-icon__container"
         }
       >
-        <MinusIcon className="menu-icon menu-icon__icon" />
+        <PenIcon className="menu-icon menu-icon__icon" />
       </div>
     </div>
   );
 };
 
-export default MinusMenuIcon;
+export default PenMenuIcon;
