@@ -14,13 +14,11 @@ const Menu = () => {
   };
 
   return (
-    <div className={isHidden ? "menu menu__frame hidden" : "menu menu__frame"}>
-      <div className="menu menu__icons-box">
-        <ArrowMenuIcon onClick={toggleClass} isActive={isActive} />
-        <PlusMenuIcon isHidden={isHidden} />
-        <MinusMenuIcon isHidden={isHidden} />
-        <PenMenuIcon isHidden={isHidden} />
-      </div>
+    <div className="menu menu__icons-box">
+      <ArrowMenuIcon onClick={toggleClass} isActive={isActive} />
+      <PlusMenuIcon isHidden={isHidden} />
+      <MinusMenuIcon isHidden={isHidden} />
+      <PenMenuIcon isHidden={isHidden} />
     </div>
   );
 };

@@ -43,6 +43,7 @@
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       justify-items: center;
+      margin-top: 80px;
       width: 80vw;
     }
   }
@@ -98,6 +99,10 @@
       margin-top: 16px;
     }
   }
+
+  .menu {
+    top: 120px;
+  }
 }
 
 @include desktop {
@@ -110,6 +115,7 @@
       display: grid;
       grid-template-columns: 1fr;
       justify-items: start;
+      margin-top: 50px;
       width: 80vw;
     }
   }
@@ -158,6 +164,37 @@
 
     &__btn {
       font-size: 2rem;
+    }
+  }
+
+  .menu {
+    left: 35px;
+    top: 160px;
+
+    &__icons-box {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  .menu-icon {
+    padding: 10px 10px 10px 16px;
+
+    &.hidden {
+      transform: translateY(-1000%);
+    }
+  }
+
+  .arrow-icon {
+    top: 11px;
+    transform: rotate(224deg);
+
+    &.left {
+      left: 14px;
+    }
+    &.right {
+      left: 14px;
+      top: 24px;
     }
   }
 }

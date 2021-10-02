@@ -3,18 +3,9 @@
 // menu
 
 .menu {
-  &__frame {
-    background-color: rgba(12, 9, 9, 0.329);
-    border: 3px solid lightgrey;
-    border-radius: 40px;
-    width: 345px;
-    @include transition-ease;
-
-    &.hidden {
-      background-color: transparent;
-      border: none;
-    }
-  }
+  position: fixed;
+  left: 15%;
+  top: 70px;
 
   &__icons-box {
     display: flex;

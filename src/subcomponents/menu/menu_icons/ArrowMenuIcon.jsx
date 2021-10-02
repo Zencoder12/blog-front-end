@@ -7,8 +7,8 @@ const ArrowMenuIcon = ({ onClick, isActive }) => {
       <button
         className={
           isActive
-            ? "menu-icon menu-icon__container active"
-            : "menu-icon menu-icon__container"
+            ? "menu-icon menu-icon__container arrow active"
+            : "menu-icon menu-icon__container arrow"
         }
         onClick={onClick}
       >
