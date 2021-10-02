@@ -4,11 +4,8 @@ import Post from "./Post";
 import * as db from "../services/db";
 import Loading from "./Loading";
 import { serverApi } from "../config.json";
-import SearchBar from "./SearchBar";
 
 const Posts = () => {
-  const searchBarSize = "small";
-
   const [posts, setPosts] = useState([]);
   const [isLoaded, setLoaded] = useState(false);
 
