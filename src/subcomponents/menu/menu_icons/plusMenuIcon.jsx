@@ -1,17 +1,18 @@
 import PlusIcon from "../icons/PlusIcon";
 
-const PlusMenuIcon = ({ isHidden }) => {
+const PlusMenuIcon = ({ isHidden, onClick }) => {
   return (
     <div className="menu-icon">
-      <div
+      <button
         className={
           isHidden
             ? "menu-icon menu-icon__container hidden"
             : "menu-icon menu-icon__container"
         }
+        onClick={onClick}
       >
         <PlusIcon className="menu-icon menu-icon__icon" />
-      </div>
+      </button>
     </div>
   );
 };

@@ -6,6 +6,8 @@ import FormGroup from "../subcomponents/form/FormGroup";
 import TextArea from "../subcomponents/form/TextArea";
 import { faFeatherAlt } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import slugify from "../services/slugify";
+import { serverApi } from "../config.json";
 
 const CreatePostForm = () => {
   const isPostForm = true;
@@ -36,14 +38,17 @@ const CreatePostForm = () => {
     if (errors) return;
 
     try {
-      await axiosInstance.post("user/register/", {
+      const slug = slugify(data.title);
+
+      await axiosInstance.post("http://127.0.0.1:8000/admin/blog/post/add/", {
         title: data.title,
+        slug: slug,
+        author: "sample",
         exerpt: data.exerpt,
         content: data.content,
       });
 
-      history.push("/login");
-      alert("Registration succesfull. Please log in to start using the app.");
+      history.push("/home");
     } catch (error) {
       if (error.response.status === 400) {
         const responseErrors = error.response.data;
