@@ -6,13 +6,11 @@ import Posts from "./components/Posts";
 import RegistrationForm from "./components/RegistrationForm";
 import PostPage from "./components/PostPage";
 import SearchResultsPage from "./components/SearchResultsPage";
-import Menu from "./components/Menu";
 
 function App() {
   return (
     <React.Fragment>
       <Header />
-      <Menu />
       <Switch>
         <Route path="/login" component={LoginForm} />
         <Route path="/home" component={Posts} />

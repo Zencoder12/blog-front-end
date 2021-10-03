@@ -5,11 +5,15 @@ import Post from "./Post";
 import * as db from "../services/db";
 import Loading from "./Loading";
 import { serverApi } from "../config.json";
+import createHistory from "history/createBrowserHistory";
 
 const SearchResultsPage = () => {
+  const history = createHistory();
   const location = useLocation();
   const [posts, setPosts] = useState([]);
   const [isLoaded, setLoaded] = useState(false);
+
+  console.log(history.location.pathname);
 
   const fetchData = async () => {
     const response = await db.axiosInstance.get(

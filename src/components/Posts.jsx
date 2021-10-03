@@ -4,6 +4,7 @@ import Post from "./Post";
 import * as db from "../services/db";
 import Loading from "./Loading";
 import { serverApi } from "../config.json";
+import Menu from "./Menu";
 
 const Posts = () => {
   const [posts, setPosts] = useState([]);
@@ -22,6 +23,7 @@ const Posts = () => {
   if (isLoaded) {
     return (
       <React.Fragment>
+        <Menu />
         <div className="posts posts__container">
           {posts.map((post) => (
             <NavLink
