@@ -1,4 +1,3 @@
-import { useState } from "react";
 import ArrowIcon from "../icons/ArrowIcon";
 
 const ArrowMenuIcon = ({ onClick, isActive }) => {

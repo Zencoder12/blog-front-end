@@ -1,3 +1,5 @@
+@import "./config";
+
 .form {
   &__box {
     align-items: center;
@@ -24,7 +26,10 @@
 
     & h3 {
       color: darkgrey;
+      font-family: $poppins;
+      font-size: 2rem;
       letter-spacing: 0.1rem;
+      margin-top: 2.2rem;
     }
   }
 

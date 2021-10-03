@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Permanent+Marker");
+@import "./config";
 
 .header {
   &__container {
@@ -11,7 +11,7 @@
   }
 
   &__name {
-    font-family: "Permanent Marker", cursive;
+    font-family: $permanent-marker;
     font-size: 3rem;
     margin-left: 10px;
   }

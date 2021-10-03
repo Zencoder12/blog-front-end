@@ -1,6 +1,5 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
-import { NavLink } from "react-router-dom";
 import { useState } from "react";
 import { useHistory } from "react-router";
 
@@ -27,8 +26,8 @@ const SearchBar = () => {
         className="search-bar__input"
         name={"searchValue"}
         onChange={handleChange}
-        placeholder="TYPE TITTLE INITIAL WORD"
-        value={data.search}
+        placeholder="SEARCH"
+        value={data.searchValue}
       />
       <div className="search-bar__icon-container">
         <button className="search-bar__btn" onClick={handleSearch}>

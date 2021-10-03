@@ -1,3 +1,6 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital@1&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Permanent+Marker");
+
 // color palette
 
 $primary-color: #89f5ef;
@@ -11,6 +14,8 @@ $grey-text-color: rgb(126, 123, 123);
 
 // typography
 
+$permanent-marker: "Permanent Marker", cursive;
+$poppins: "Poppins", sans-serif;
 $search-bar-text-size: 1rem;
 
 html {
