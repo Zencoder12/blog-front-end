@@ -12,6 +12,10 @@
   .container {
     margin: 20px 0;
     width: 60vw;
+
+    &.post-form {
+      width: 80vw;
+    }
   }
 
   .header {
@@ -167,6 +171,12 @@
     }
   }
 
+  .form__box {
+    &.post-form {
+      margin-top: 5rem;
+    }
+  }
+
   .menu {
     left: 35px;
     top: 160px;
@@ -181,7 +191,7 @@
     padding: 10px 10px 10px 16px;
 
     &.hidden {
-      transform: translateY(-1200%);
+      transform: translateY(-100%);
     }
   }
 

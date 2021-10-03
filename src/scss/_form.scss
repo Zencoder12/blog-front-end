@@ -10,6 +10,10 @@
     flex-direction: column;
     justify-content: center;
     width: 80%;
+
+    &.post-form {
+      border: none;
+    }
   }
 
   &__header {
@@ -46,8 +50,15 @@
   }
 
   &__input {
+    font-family: $body;
     padding: 1rem 1rem;
     width: 100%;
+
+    &.post-form {
+      border: 2px solid lighten($grey-text-color, 40%);
+      border-radius: 8px;
+      padding: 1.6rem 1rem;
+    }
   }
 
   &__btn {

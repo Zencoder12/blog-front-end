@@ -6,6 +6,7 @@ import Posts from "./components/Posts";
 import RegistrationForm from "./components/RegistrationForm";
 import PostPage from "./components/PostPage";
 import SearchResultsPage from "./components/SearchResultsPage";
+import CreatePostForm from "./components/CreatePostForm";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path="/register" component={RegistrationForm} />
         <Route path="/search-results" component={SearchResultsPage} />
         <Route path="/post/:slug" component={PostPage} />
+        <Route path="/create" component={CreatePostForm} />
       </Switch>
     </React.Fragment>
   );
