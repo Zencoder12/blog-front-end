@@ -129,7 +129,7 @@
       display: grid;
       grid-template-columns: 400px auto;
       column-gap: 20px;
-      width: 100%;
+      min-width: 78vw;
     }
 
     &__content {

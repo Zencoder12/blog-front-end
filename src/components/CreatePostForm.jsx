@@ -12,7 +12,7 @@ import { serverApi } from "../config.json";
 const CreatePostForm = () => {
   const isPostForm = true;
   const [state, setState] = useState({
-    data: { title: "", exerpt: "", content: "" },
+    data: { title: "", excerpt: "", content: "" },
     errors: {},
   });
 
@@ -40,11 +40,11 @@ const CreatePostForm = () => {
     try {
       const slug = slugify(data.title);
 
-      await axiosInstance.post("http://127.0.0.1:8000/admin/blog/post/add/", {
+      await axiosInstance.post(serverApi + "blog/admin/create/", {
         title: data.title,
         slug: slug,
-        author: "sample",
-        exerpt: data.exerpt,
+        author: 2,
+        excerpt: data.excerpt,
         content: data.content,
       });
 
@@ -65,7 +65,7 @@ const CreatePostForm = () => {
 
   const stateSchema = {
     title: Joi.string().min(5).max(250).required().label("Title"),
-    exerpt: Joi.string().min(5).max(250).required().label("Exerpt"),
+    excerpt: Joi.string().min(5).max(250).required().label("Excerpt"),
     content: Joi.string().min(10).max(1024).required().label("Content"),
   };
 
@@ -173,8 +173,8 @@ const CreatePostForm = () => {
         </header>
         {renderFormGroup("title", "Title", "Set the title")}
         {renderTextArea(
-          "exerpt",
-          "Exerpt",
+          "excerpt",
+          "excerpt",
           "Here you can write a summary of your post.",
           3
         )}
