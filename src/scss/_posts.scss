@@ -23,7 +23,7 @@
     display: grid;
     grid-template-rows: 1fr, auto;
     padding: 1rem;
-    width: 400px;
+    // width: 400px;
     @include box-shadow;
 
     &:hover {
@@ -54,14 +54,26 @@
     letter-spacing: 0.2rem;
     line-height: 3rem;
     margin-top: 2rem;
+    margin-bottom: 1.6rem;
   }
 
-  &__author {
-    color: $grey-text-color;
+  &__meta {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__author,
+  &__time {
+    color: $red-color;
     display: inline-block;
     font-size: 1.2rem;
     font-style: oblique;
-    margin-top: 1.6rem;
+    font-weight: 600;
     text-transform: uppercase;
+  }
+
+  &__time {
+    margin-left: 4rem;
+    margin-top: 0.2rem;
   }
 }

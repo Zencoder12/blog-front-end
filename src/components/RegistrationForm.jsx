@@ -133,7 +133,7 @@ const RegistrationForm = () => {
   const { account, errors } = state;
 
   return (
-    <div className="container post-form">
+    <div className="container">
       <form className="form form__box">
         <header className="form form__header">
           <h2>Register</h2>

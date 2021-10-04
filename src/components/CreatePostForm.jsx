@@ -65,7 +65,7 @@ const CreatePostForm = () => {
   };
 
   const stateSchema = {
-    title: Joi.string().min(5).max(250).required().label("Title"),
+    title: Joi.string().min(5).max(56).required().label("Title"),
     excerpt: Joi.string().min(5).max(250).required().label("Excerpt"),
     content: Joi.string().min(10).max(1024).required().label("Content"),
   };

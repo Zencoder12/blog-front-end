@@ -54,27 +54,6 @@
     margin-top: 12px;
   }
 
-  .posts {
-    &__container {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      justify-items: center;
-      margin-top: 80px;
-      width: 80vw;
-    }
-  }
-
-  .post {
-    &__content {
-      justify-content: space-between;
-    }
-
-    &__author {
-      font-size: 2rem;
-      margin-bottom: 4rem;
-    }
-  }
-
   .post-page {
     &__container {
       width: 70vw;
@@ -121,6 +100,50 @@
   }
 }
 
+@include large-tablet {
+  .posts {
+    &__container {
+      display: grid;
+      grid-template-columns: 1fr;
+      justify-items: start;
+      margin-top: 50px;
+      width: 80vw;
+    }
+  }
+
+  .post {
+    &__frame {
+      column-gap: 20px;
+      display: grid;
+      grid-template-columns: 400px auto;
+      height: 38rem;
+
+      min-width: 78vw;
+    }
+
+    &__content {
+      justify-content: space-around;
+      overflow: hidden;
+    }
+
+    &__meta {
+      margin-bottom: 2rem;
+    }
+
+    &__title {
+      font-size: 3.6rem;
+      letter-spacing: 0.4rem;
+      line-height: 4rem;
+    }
+
+    &__author {
+      display: inline-block;
+      font-size: 2rem;
+      vertical-align: text-bottom;
+    }
+  }
+}
+
 @include desktop {
   .header {
     &__title {
@@ -136,40 +159,13 @@
     }
   }
 
-  .posts {
-    &__container {
-      display: grid;
-      grid-template-columns: 1fr;
-      justify-items: start;
-      margin-top: 50px;
-      width: 80vw;
-    }
-  }
-
   .post {
-    &__frame {
-      display: grid;
-      grid-template-columns: 400px auto;
-      column-gap: 20px;
-      min-width: 78vw;
-    }
-
     &__content {
-      overflow: hidden;
-    }
-
-    &__title {
-      font-size: 3.6rem;
-      letter-spacing: 0.4rem;
-      line-height: 4rem;
-    }
-
-    &__author {
-      display: inline-block;
-      font-size: 2rem;
-      vertical-align: text-bottom;
+      justify-content: space-between;
     }
   }
+
+  // form
 
   .form {
     & h2 {
@@ -198,6 +194,8 @@
       margin-top: 5rem;
     }
   }
+
+  // menu
 
   .menu {
     left: 40px;
