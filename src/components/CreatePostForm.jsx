@@ -8,6 +8,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import slugify from "../services/slugify";
 import { axiosInstance } from "../services/db";
 import * as userServices from "../services/userServices";
+import { toast } from "react-toastify";
 
 const CreatePostForm = () => {
   const isPostForm = true;
@@ -60,6 +61,13 @@ const CreatePostForm = () => {
         }
 
         setState({ data, errors });
+      }
+
+      if (error.response.status === 401) {
+        toast(
+          "You must be logged in to be able to create a post. Redirecting..."
+        );
+        history.push("/login");
       }
     }
   };

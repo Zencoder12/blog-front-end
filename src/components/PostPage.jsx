@@ -22,12 +22,11 @@ const PostPage = () => {
             axiosInstance
               .delete("blog/admin/delete/" + data.post.id)
               .catch((error) => {
-                if (error.response.status === 404) console.log(error);
+                if (error.response.status === 404) {
+                  toast("Operation failed. Please try again later.");
+                }
               })
-              .then(() => {
-                toast("Operation failed. Please try again later.");
-                history.push("/home");
-              });
+              .then(() => history.push("/home"));
           },
         },
         {
@@ -43,16 +42,18 @@ const PostPage = () => {
   };
 
   useEffect(() => {
-    try {
-      axiosInstance.get("blog/post/" + slug).then((res) => {
+    axiosInstance
+      .get("blog/post/" + slug)
+      .then((res) => {
         setData({ post: res.data });
+      })
+      .catch((error) => {
+        if (error.response.status === 404) {
+          toast("Oops. Something went wrong.");
+          history.push("/not-found");
+        }
       });
-    } catch (error) {
-      if (error.response.status === 404) alert("Post not found!");
-    }
   }, []);
-
-  // TODO: implement response to error
 
   return (
     <React.Fragment>
