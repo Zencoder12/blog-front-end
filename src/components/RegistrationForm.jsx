@@ -137,7 +137,8 @@ const RegistrationForm = () => {
       <form className="form form__box">
         <header className="form form__header">
           <h2>Register</h2>
-          <h3>Want to register, fill up this form!</h3>
+          <h3>Want to register, fill up this</h3>
+          <h3>form!</h3>
         </header>
         {renderFormGroup("username", "Username", "Your full name")}
         {renderFormGroup(

@@ -147,7 +147,8 @@ const LoginForm = () => {
       <form className="form form__box">
         <header className="form form__header">
           <h2>Sign In</h2>
-          <h3>Please enter the required information.</h3>
+          <h3>Please enter the required</h3>
+          <h3>information.</h3>
         </header>
         {renderFormGroup(
           "email",

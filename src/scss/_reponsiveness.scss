@@ -1,6 +1,10 @@
 @import "./config";
 
 @include mobile {
+  .container {
+    width: 45rem;
+  }
+
   .search-bar {
     &--large {
       display: none;
@@ -10,36 +14,45 @@
 
 @include tablet {
   .container {
-    margin: 20px 0;
-    width: 60vw;
+    margin: 20px auto 20px auto;
+    width: 50rem;
 
     &.post-form {
-      width: 80vw;
+      width: 60vw;
     }
   }
 
   .header {
     &__container {
       margin: 12px auto 0 auto;
-      gap: 16px;
+      gap: 10px;
       padding: 2rem;
       width: 80vw;
     }
 
+    &__title {
+      align-items: center;
+      display: flex;
+      flex-direction: row;
+      gap: 0.8rem;
+      justify-content: center;
+      margin-top: 10px;
+    }
+
     &__name {
       font-family: "Permanent Marker", cursive;
-      font-size: 4rem;
-      margin-left: 10px;
+      font-size: 3rem;
     }
 
     &__blog {
-      font-size: 3.6rem;
+      font-size: 2.2rem;
       font-weight: 200;
+      margin-top: 10px;
     }
   }
 
   .logout-icon {
-    margin-top: 6px;
+    margin-top: 12px;
   }
 
   .posts {
@@ -100,18 +113,28 @@
     }
 
     &__icon {
-      margin-top: 16px;
+      margin-top: 12px;
     }
   }
 
   .menu {
-    top: 120px;
+    top: 130px;
   }
 }
 
 @include desktop {
-  .container {
-    width: 40vw;
+  .header {
+    &__title {
+      margin-top: 4px;
+    }
+
+    &__name {
+      font-size: 3.6rem;
+    }
+
+    &__blog {
+      font-size: 3rem;
+    }
   }
 
   .posts {
