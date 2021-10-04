@@ -3,6 +3,8 @@ import Joi from "joi-browser";
 import { axiosInstance } from "../services/db";
 import FormGroup from "../subcomponents/form/FormGroup";
 import { useHistory } from "react-router-dom";
+import * as userServices from "../services/userServices";
+import { toast } from "react-toastify";
 
 const LoginForm = () => {
   const [state, setState] = useState({
@@ -41,6 +43,11 @@ const LoginForm = () => {
         localStorage.setItem("refresh_token", res.data.refresh);
         axiosInstance.defaults.headers["Authorization"] =
           "JWT " + localStorage.getItem("access_token");
+
+        userServices.setUserId();
+
+        toast.info("Welcome back!");
+
         history.push("/home");
       })
       .catch((error) => {

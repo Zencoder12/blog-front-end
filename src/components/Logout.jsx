@@ -1,9 +1,11 @@
 import React from "react";
-import { axiosInstance } from "../services/db";
 import { useHistory } from "react-router";
+import { NavLink } from "react-router-dom";
+import { toast } from "react-toastify";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faDoorOpen } from "@fortawesome/free-solid-svg-icons";
-import { NavLink } from "react-router-dom";
+import { axiosInstance } from "../services/db";
+import * as userServices from "../services/userServices";
 
 const Logout = () => {
   const history = useHistory();
@@ -15,7 +17,11 @@ const Logout = () => {
       });
       localStorage.removeItem("access_token");
       localStorage.removeItem("refresh_token");
+      userServices.removeUserId();
       axiosInstance.defaults.headers["Authorization"] = null;
+
+      toast.info("You have logged out.");
+
       history.push("/login");
     } catch (error) {
       if (error.response.status === 400)
