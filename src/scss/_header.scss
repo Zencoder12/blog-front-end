@@ -5,26 +5,44 @@
     border-bottom: 1px solid black;
     display: flex;
     justify-content: space-between;
-    gap: 6px;
+    gap: 1rem;
+    margin-top: 0.4rem;
     padding: 1rem;
     position: relative;
   }
 
+  &__title {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
   &__name {
     font-family: $permanent-marker;
-    font-size: 3rem;
-    margin-left: 10px;
+    font-size: 2.4rem;
+    margin-left: 1rem;
   }
 
   &__blog {
-    font-size: 2.4rem;
+    font-size: 2rem;
     font-weight: 200;
-    margin-left: 12px;
-    margin-top: 10px;
+    margin-bottom: 0.6rem;
+    margin-left: 0.4rem;
   }
 }
 
+.login-icon {
+  margin-left: 0.6rem;
+  margin-top: 1.4rem;
+}
+
 .logout-icon {
+  margin-top: 1.2rem;
+}
+
+.logout-icon,
+.login-icon {
   &:hover {
     color: darkgray;
   }
