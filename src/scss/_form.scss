@@ -98,4 +98,15 @@
     font-size: 1.1rem;
     margin-top: 4px;
   }
+
+  &__redirect {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+
+    &-msg {
+      font-size: 1.2rem;
+      font-weight: 500;
+    }
+  }
 }

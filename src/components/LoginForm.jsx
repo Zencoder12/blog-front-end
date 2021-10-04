@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Joi from "joi-browser";
 import { axiosInstance } from "../services/db";
 import FormGroup from "../subcomponents/form/FormGroup";
-import { useHistory } from "react-router-dom";
+import { NavLink, useHistory } from "react-router-dom";
 import * as userServices from "../services/userServices";
 import { toast } from "react-toastify";
 
@@ -162,6 +162,10 @@ const LoginForm = () => {
           "Choose your password",
           "password"
         )}
+        <NavLink className="form form__redirect" to="/register">
+          <p className="form form__redirect-msg">Don't have an account yet?</p>
+          <p className="form form__redirect-msg">Click here to register.</p>
+        </NavLink>
         {renderSubmitButton()}
       </form>
     </div>
