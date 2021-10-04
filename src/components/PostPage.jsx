@@ -22,6 +22,12 @@ const PostPage = () => {
             axiosInstance
               .delete("blog/admin/delete/" + data.post.id)
               .catch((error) => {
+                if (error.response.status === 401) {
+                  toast(
+                    "You must be logged in to be able to delete a post. Redirecting..."
+                  );
+                  history.push("/login");
+                }
                 if (error.response.status === 404) {
                   toast("Operation failed. Please try again later.");
                 }

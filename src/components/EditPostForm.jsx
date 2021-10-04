@@ -8,6 +8,7 @@ import { faEdit } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import slugify from "../services/slugify";
 import { useParams } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const EditPostForm = () => {
   const isPostForm = true;
@@ -72,6 +73,13 @@ const EditPostForm = () => {
         }
 
         setState({ data, errors });
+      }
+
+      if (error.response.status === 401) {
+        toast(
+          "You must be logged in to be able to edit a post. Redirecting..."
+        );
+        history.push("/login");
       }
     }
   };

@@ -17,7 +17,7 @@ import "react-confirm-alert/src/react-confirm-alert.css";
 function App() {
   return (
     <React.Fragment>
-      <ToastContainer autoClose={2000} />
+      <ToastContainer autoClose={3000} />
       <Header />
       <Switch>
         <Route path="/create" component={CreatePostForm} />
