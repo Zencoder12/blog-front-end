@@ -7,10 +7,13 @@ import RegistrationForm from "./components/RegistrationForm";
 import PostPage from "./components/PostPage";
 import SearchResultsPage from "./components/SearchResultsPage";
 import CreatePostForm from "./components/CreatePostForm";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   return (
     <React.Fragment>
+      <ToastContainer />
       <Header />
       <Switch>
         <Route path="/login" component={LoginForm} />

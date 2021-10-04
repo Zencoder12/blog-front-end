@@ -2,21 +2,20 @@ import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router";
 import { useParams } from "react-router-dom";
 import { axiosInstance } from "../services/db";
+import { toast } from "react-toastify";
 import Menu from "./Menu";
 
 const PostPage = () => {
   const history = useHistory();
   const { slug } = useParams();
-
   const [data, setData] = useState({ post: [] });
-
-  console.log(data);
 
   const handleDelete = () => {
     axiosInstance
-      .delete("blog/admin/delete/" + data.post.id)
+      .delete("blog/admin/deletes/" + data.post.id)
       .catch((error) => {
-        if (error.response.status === 404) alert("operation failed.");
+        if (error.response.status === 404)
+          toast.warning("Operation failed. Please try again later.");
       })
       .then(() => history.push("/home"));
   };
