@@ -1,17 +1,18 @@
 import MinusIcon from "../icons/MinusIcon";
 
-const MinusMenuIcon = ({ isHidden }) => {
+const MinusMenuIcon = ({ isHidden, onClick }) => {
   return (
     <div className="menu-icon">
-      <div
+      <button
         className={
           isHidden
             ? "menu-icon menu-icon__container hidden"
             : "menu-icon menu-icon__container"
         }
+        onClick={onClick}
       >
         <MinusIcon className="menu-icon menu-icon__icon" />
-      </div>
+      </button>
     </div>
   );
 };

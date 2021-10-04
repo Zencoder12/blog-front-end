@@ -1,22 +1,42 @@
 import React, { useEffect, useState } from "react";
+import { useHistory } from "react-router";
 import { useParams } from "react-router-dom";
 import { axiosInstance } from "../services/db";
 import Menu from "./Menu";
 
 const PostPage = () => {
+  const history = useHistory();
   const { slug } = useParams();
 
   const [data, setData] = useState({ post: [] });
 
+  console.log(data);
+
+  const handleDelete = () => {
+    axiosInstance
+      .delete("blog/admin/delete/" + data.post.id)
+      .catch((error) => {
+        if (error.response.status === 404) alert("operation failed.");
+      })
+      .then(() => history.push("/home"));
+  };
+
   useEffect(() => {
-    axiosInstance.get("blog/" + slug).then((res) => {
-      setData({ post: res.data });
-    });
+    try {
+      axiosInstance.get("blog/post/" + slug).then((res) => {
+        setData({ post: res.data });
+      });
+    } catch (error) {
+      console.log(error.response);
+      if (error.response.status === 404) alert("Post not found!");
+    }
   }, []);
+
+  // TODO: implement response to error
 
   return (
     <React.Fragment>
-      <Menu />
+      <Menu toDeletePost={handleDelete} />
       <div className="post-page post-page__container">
         <h2 className="post-page post-page__title">{data.post.title}</h2>
         <div className="post-page post-page__content-container">

@@ -39,8 +39,7 @@ const CreatePostForm = () => {
 
     try {
       const slug = slugify(data.title);
-
-      await axiosInstance.post(serverApi + "blog/admin/create/", {
+      await axiosInstance.post("blog/admin/create/", {
         title: data.title,
         slug: slug,
         author: 2,

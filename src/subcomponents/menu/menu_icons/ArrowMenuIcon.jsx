@@ -1,6 +1,6 @@
 import ArrowIcon from "../icons/ArrowIcon";
 
-const ArrowMenuIcon = ({ onClick, isActive }) => {
+const ArrowMenuIcon = ({ isActive, onClick }) => {
   return (
     <div className="menu-icon">
       <button
