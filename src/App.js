@@ -10,6 +10,7 @@ import CreatePostForm from "./components/CreatePostForm";
 import EditPostForm from "./components/EditPostForm";
 import NotFound from "./components/NotFound";
 import Footer from "./components/Footer";
+import Error500 from "./components/Error500";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "react-confirm-alert/src/react-confirm-alert.css";
@@ -23,6 +24,7 @@ function App() {
         <Route path="/create" component={CreatePostForm} />
         <Route path="/edit/:id" component={EditPostForm} />
         <Route path="/home" component={Posts} />
+        <Route path="/error-500" component={Error500} />
         <Route path="/login" component={LoginForm} />
         <Route path="/not-found" component={NotFound} />
         <Route path="/post/:slug" component={PostPage} />

@@ -22,12 +22,11 @@ axiosInstance.interceptors.response.use(
     const originalRequest = error.config;
 
     // unexpected response
-    if (typeof error.response === "undefined") {
-      alert(
-        "A server/network error occurred." +
-          "Sorry about this - we will get it fixed shortly."
-      );
-      return Promise.reject(error);
+    if (
+      typeof error.response === "undefined" ||
+      error.response.status === 500
+    ) {
+      window.location.href = "/error-500";
     }
 
     if (
