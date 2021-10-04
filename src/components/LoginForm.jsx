@@ -46,7 +46,7 @@ const LoginForm = () => {
 
         userServices.setUserId();
 
-        toast.info("Welcome back!");
+        toast("Welcome back!");
 
         history.push("/home");
       })

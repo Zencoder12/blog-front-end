@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import { axiosInstance } from "../services/db";
 import { toast } from "react-toastify";
 import Menu from "./Menu";
+import { confirmAlert } from "react-confirm-alert";
 
 const PostPage = () => {
   const history = useHistory();
@@ -11,13 +12,30 @@ const PostPage = () => {
   const [data, setData] = useState({ post: [] });
 
   const handleDelete = () => {
-    axiosInstance
-      .delete("blog/admin/delete/" + data.post.id)
-      .catch((error) => {
-        if (error.response.status === 404)
-          toast.warning("Operation failed. Please try again later.");
-      })
-      .then(() => history.push("/home"));
+    confirmAlert({
+      title: "Confirm to delete",
+      message: "Are you sure you want to delete this post?",
+      buttons: [
+        {
+          label: "Yes",
+          onClick: () => {
+            axiosInstance
+              .delete("blog/admin/delete/" + data.post.id)
+              .catch((error) => {
+                if (error.response.status === 404) console.log(error);
+              })
+              .then(() => {
+                toast("Operation failed. Please try again later.");
+                history.push("/home");
+              });
+          },
+        },
+        {
+          label: "No",
+          onClick: () => console.log("operation canceled"),
+        },
+      ],
+    });
   };
 
   const handleEdit = () => {
@@ -30,7 +48,6 @@ const PostPage = () => {
         setData({ post: res.data });
       });
     } catch (error) {
-      console.log(error.response);
       if (error.response.status === 404) alert("Post not found!");
     }
   }, []);

@@ -12,11 +12,12 @@ import NotFound from "./components/NotFound";
 import Footer from "./components/Footer";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import "react-confirm-alert/src/react-confirm-alert.css";
 
 function App() {
   return (
     <React.Fragment>
-      <ToastContainer />
+      <ToastContainer autoClose={2000} />
       <Header />
       <Switch>
         <Route path="/create" component={CreatePostForm} />
