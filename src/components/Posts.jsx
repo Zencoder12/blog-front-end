@@ -7,6 +7,7 @@ import { serverApi } from "../config.json";
 import Menu from "./Menu";
 
 const Posts = () => {
+  const isMainPage = true;
   const [posts, setPosts] = useState([]);
   const [isLoaded, setLoaded] = useState(false);
 
@@ -23,7 +24,7 @@ const Posts = () => {
   if (isLoaded) {
     return (
       <React.Fragment>
-        <Menu />
+        <Menu isMainPage={isMainPage} />
         <div className="posts posts__container">
           {posts.map((post) => (
             <NavLink

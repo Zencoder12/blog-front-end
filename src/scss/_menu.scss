@@ -40,6 +40,11 @@
     &.hidden {
       transform: translateX(-1400%);
     }
+
+    &.disabled {
+      background: $grey-text-color;
+      cursor: default;
+    }
   }
 }
 

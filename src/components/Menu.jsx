@@ -5,8 +5,10 @@ import PlusMenuIcon from "../subcomponents/menu/menu_icons/PlusMenuIcon";
 import MinusMenuIcon from "../subcomponents/menu/menu_icons/MinusMenuIcon";
 import PenMenuIcon from "../subcomponents/menu/menu_icons/PenMenuIcon";
 
-const Menu = ({ toDeletePost, toEditPost }) => {
+const Menu = ({ isMainPage, toDeletePost, toEditPost }) => {
   const history = useHistory();
+  const isDisabled = isMainPage;
+
   const [isActive, setActive] = useState(false);
   const [isHidden, setHidden] = useState(true);
 
@@ -23,8 +25,16 @@ const Menu = ({ toDeletePost, toEditPost }) => {
     <div className="menu menu__icons-box">
       <ArrowMenuIcon onClick={toggleClass} isActive={isActive} />
       <PlusMenuIcon onClick={toCreatePost} isHidden={isHidden} />
-      <MinusMenuIcon onClick={toDeletePost} isHidden={isHidden} />
-      <PenMenuIcon onClick={toEditPost} isHidden={isHidden} />
+      <MinusMenuIcon
+        onClick={toDeletePost}
+        isHidden={isHidden}
+        isDisabled={isDisabled}
+      />
+      <PenMenuIcon
+        onClick={toEditPost}
+        isHidden={isHidden}
+        isDisabled={isDisabled}
+      />
     </div>
   );
 };
