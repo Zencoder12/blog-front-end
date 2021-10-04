@@ -30,6 +30,14 @@ axiosInstance.interceptors.response.use(
       return Promise.reject(error);
     }
 
+    if (
+      error.response.status === 401 &&
+      originalRequest.url === serverApi + "token/refresh/"
+    ) {
+      window.location.href = "/login/";
+      return Promise.reject(error);
+    }
+
     // sent the token but the token was not valid, so use refresh token to get a
     // new access token
     if (

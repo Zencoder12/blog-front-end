@@ -12,12 +12,16 @@ const PostPage = () => {
 
   const handleDelete = () => {
     axiosInstance
-      .delete("blog/admin/deletes/" + data.post.id)
+      .delete("blog/admin/delete/" + data.post.id)
       .catch((error) => {
         if (error.response.status === 404)
           toast.warning("Operation failed. Please try again later.");
       })
       .then(() => history.push("/home"));
+  };
+
+  const handleEdit = () => {
+    history.push("/edit/" + data.post.id);
   };
 
   useEffect(() => {
@@ -35,7 +39,7 @@ const PostPage = () => {
 
   return (
     <React.Fragment>
-      <Menu toDeletePost={handleDelete} />
+      <Menu toDeletePost={handleDelete} toEditPost={handleEdit} />
       <div className="post-page post-page__container">
         <h2 className="post-page post-page__title">{data.post.title}</h2>
         <div className="post-page post-page__content-container">

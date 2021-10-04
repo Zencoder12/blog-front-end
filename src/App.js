@@ -7,6 +7,7 @@ import RegistrationForm from "./components/RegistrationForm";
 import PostPage from "./components/PostPage";
 import SearchResultsPage from "./components/SearchResultsPage";
 import CreatePostForm from "./components/CreatePostForm";
+import EditPostForm from "./components/EditPostForm";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -21,6 +22,7 @@ function App() {
         <Route path="/register" component={RegistrationForm} />
         <Route path="/search-results" component={SearchResultsPage} />
         <Route path="/post/:slug" component={PostPage} />
+        <Route path="/edit/:id" component={EditPostForm} />
         <Route path="/create" component={CreatePostForm} />
       </Switch>
     </React.Fragment>
