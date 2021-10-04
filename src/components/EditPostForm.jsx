@@ -75,6 +75,13 @@ const EditPostForm = () => {
         setState({ data, errors });
       }
 
+      if (error.response.status === 403) {
+        toast(
+          "You are not allowed to delete other user's post. Redirecting..."
+        );
+        history.push("/home");
+      }
+
       if (error.response.status === 401) {
         toast(
           "You must be logged in to be able to edit a post. Redirecting..."
