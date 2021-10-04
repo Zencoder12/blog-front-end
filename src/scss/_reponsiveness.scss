@@ -96,7 +96,42 @@
   }
 
   .menu {
-    top: 130px;
+    margin-left: 115px;
+    top: 120px;
+  }
+}
+
+@include menu-transition {
+  .menu {
+    left: 10px;
+    margin-left: 0;
+    top: 160px;
+
+    &__icons-box {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  .menu-icon {
+    padding: 10px 10px 10px 16px;
+
+    &.hidden {
+      transform: translateY(-1400%);
+    }
+  }
+
+  .arrow-icon {
+    top: 11px;
+    transform: rotate(224deg);
+
+    &.left {
+      left: 14px;
+    }
+    &.right {
+      left: 14px;
+      top: 24px;
+    }
   }
 }
 
@@ -161,7 +196,15 @@
 
   .post {
     &__content {
-      justify-content: space-between;
+      justify-content: space-evenly;
+    }
+
+    &__excerpt {
+      display: block;
+    }
+
+    &__meta {
+      margin-top: 1rem;
     }
   }
 

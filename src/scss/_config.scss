@@ -81,3 +81,9 @@ a {
     @content;
   }
 }
+
+@mixin menu-transition {
+  @media screen and (min-width: 900px) {
+    @content;
+  }
+}

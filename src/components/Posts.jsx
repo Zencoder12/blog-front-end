@@ -21,8 +21,6 @@ const Posts = () => {
     fetchData();
   }, []);
 
-  console.log(posts);
-
   if (isLoaded) {
     return (
       <React.Fragment>

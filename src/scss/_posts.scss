@@ -43,6 +43,13 @@
     width: 100%;
   }
 
+  &__excerpt {
+    color: $grey-text-color;
+    display: None;
+    font-size: 2rem;
+    font-weight: 300;
+  }
+
   &__content {
     display: flex;
     flex-direction: column;

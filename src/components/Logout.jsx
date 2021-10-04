@@ -20,7 +20,7 @@ const Logout = () => {
       userServices.removeUserId();
       axiosInstance.defaults.headers["Authorization"] = null;
 
-      toast.info("You have logged out.");
+      toast.info("You've logged out.");
 
       history.push("/login");
     } catch (error) {
