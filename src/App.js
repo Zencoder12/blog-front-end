@@ -9,6 +9,7 @@ import SearchResultsPage from "./components/SearchResultsPage";
 import CreatePostForm from "./components/CreatePostForm";
 import EditPostForm from "./components/EditPostForm";
 import NotFound from "./components/NotFound";
+import Footer from "./components/Footer";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -29,6 +30,7 @@ function App() {
         <Route path="/" exact component={Posts} />
         <Redirect to="/not-found" />
       </Switch>
+      <Footer />
     </React.Fragment>
   );
 }

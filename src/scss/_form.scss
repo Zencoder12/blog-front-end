@@ -1,5 +1,17 @@
 @import "./config";
 
+.container {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 4rem auto 0 auto;
+
+  &.post-form {
+    margin: 0 auto;
+  }
+}
+
 .form {
   &__box {
     align-items: center;
@@ -18,7 +30,6 @@
 
   &__header {
     padding: 2rem 2rem 1rem 2rem;
-    margin: 1rem 0;
     text-align: center;
 
     & h2 {
