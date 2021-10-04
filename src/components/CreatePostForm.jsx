@@ -176,10 +176,10 @@ const CreatePostForm = () => {
         {renderTextArea(
           "excerpt",
           "excerpt",
-          "Here you can write a summary of your post.",
+          "Here you can write a summary of your post",
           3
         )}
-        {renderTextArea("content", "Content", "Share your experience.", 20)}
+        {renderTextArea("content", "Content", "Share your experience", 20)}
         {renderSubmitButton()}
       </form>
     </div>

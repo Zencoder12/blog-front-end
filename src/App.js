@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, Switch } from "react-router-dom";
+import { Redirect, Route, Switch } from "react-router-dom";
 import Header from "./components/Header";
 import LoginForm from "./components/LoginForm";
 import Posts from "./components/Posts";
@@ -8,6 +8,7 @@ import PostPage from "./components/PostPage";
 import SearchResultsPage from "./components/SearchResultsPage";
 import CreatePostForm from "./components/CreatePostForm";
 import EditPostForm from "./components/EditPostForm";
+import NotFound from "./components/NotFound";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -17,13 +18,16 @@ function App() {
       <ToastContainer />
       <Header />
       <Switch>
-        <Route path="/login" component={LoginForm} />
+        <Route path="/create" component={CreatePostForm} />
+        <Route path="/edit/:id" component={EditPostForm} />
         <Route path="/home" component={Posts} />
+        <Route path="/login" component={LoginForm} />
+        <Route path="/not-found" component={NotFound} />
+        <Route path="/post/:slug" component={PostPage} />
         <Route path="/register" component={RegistrationForm} />
         <Route path="/search-results" component={SearchResultsPage} />
-        <Route path="/post/:slug" component={PostPage} />
-        <Route path="/edit/:id" component={EditPostForm} />
-        <Route path="/create" component={CreatePostForm} />
+        <Route path="/" exact component={Posts} />
+        <Redirect to="/not-found" />
       </Switch>
     </React.Fragment>
   );
