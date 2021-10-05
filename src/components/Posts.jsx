@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
-import Post from "./Post";
 import * as db from "../services/db";
-import Loading from "./Loading";
 import { serverApi } from "../config.json";
+import Post from "./Post";
 import Menu from "./Menu";
+import Loading from "./Loading";
 
 const Posts = () => {
   const isMainPage = true;

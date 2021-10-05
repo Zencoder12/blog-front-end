@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import { useLocation } from "react-router";
-import Post from "./Post";
 import * as db from "../services/db";
-import Loading from "./Loading";
 import { serverApi } from "../config.json";
+import Post from "./Post";
+import Loading from "./Loading";
 
 const SearchResultsPage = () => {
   const location = useLocation();

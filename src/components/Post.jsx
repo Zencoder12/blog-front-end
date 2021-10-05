@@ -12,6 +12,7 @@ const Post = ({ post }) => {
     return imagesApiUrl + getRandomInt(20);
   }
 
+  // processdate() convert date format yyyy/mm/dd -> dd/mm/yyyy
   function processDate() {
     const date = post.published;
     const yyyy = date.substring(0, 4);
@@ -29,10 +30,7 @@ const Post = ({ post }) => {
       <div className="post post__content">
         <h3 className="post post__title">{post.title}</h3>
         <h4 className="post post__excerpt">{post.excerpt}</h4>
-        <div className="post post__meta">
-          <span className="post post__author">- posted by {post.author} -</span>
-          <span className="post post__time">{publishedDate}</span>
-        </div>
+        <span className="post post__time">Post date: {publishedDate}</span>
       </div>
     </div>
   );

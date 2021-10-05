@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router";
 import { useParams } from "react-router-dom";
 import { axiosInstance } from "../services/db";
-import { toast } from "react-toastify";
 import Menu from "./Menu";
+import { toast } from "react-toastify";
 import { confirmAlert } from "react-confirm-alert";
 
 const PostPage = () => {
@@ -22,7 +22,6 @@ const PostPage = () => {
             axiosInstance
               .delete("blog/admin/delete/" + data.post.id)
               .catch((error) => {
-                console.log(error.response);
                 if (error.response.status === 401) {
                   toast(
                     "You must be logged in to be able to delete a post. Redirecting..."

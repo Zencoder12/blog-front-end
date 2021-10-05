@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router";
-import Joi from "joi-browser";
-import FormGroup from "../subcomponents/form/FormGroup";
-import TextArea from "../subcomponents/form/TextArea";
-import { faFeatherAlt } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import slugify from "../services/slugify";
 import { axiosInstance } from "../services/db";
 import * as userServices from "../services/userServices";
+import FormGroup from "../subcomponents/form/FormGroup";
+import TextArea from "../subcomponents/form/TextArea";
+import Joi from "joi-browser";
+import { faFeatherAlt } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { toast } from "react-toastify";
 
 const CreatePostForm = () => {

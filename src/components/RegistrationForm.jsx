@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router";
-import Joi from "joi-browser";
 import { axiosInstance } from "../services/db";
 import FormGroup from "../subcomponents/form/FormGroup";
+import Joi from "joi-browser";
+import { toast } from "react-toastify";
 
 const RegistrationForm = () => {
   const [state, setState] = useState({
@@ -39,7 +40,7 @@ const RegistrationForm = () => {
       });
 
       history.push("/login");
-      alert("Registration succesfull. Please log in to start using the app.");
+      toast("Registration succesfull. Please log in to start using the app.");
     } catch (error) {
       if (error.response.status === 400) {
         const responseErrors = error.response.data;

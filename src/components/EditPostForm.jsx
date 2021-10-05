@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router";
-import Joi from "joi-browser";
+import { useParams } from "react-router-dom";
 import { axiosInstance } from "../services/db";
 import FormGroup from "../subcomponents/form/FormGroup";
 import TextArea from "../subcomponents/form/TextArea";
+import Joi from "joi-browser";
 import { faEdit } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import slugify from "../services/slugify";
-import { useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 
 const EditPostForm = () => {

@@ -157,12 +157,12 @@
     }
 
     &__content {
-      justify-content: space-around;
+      justify-content: space-evenly;
       overflow: hidden;
     }
 
-    &__meta {
-      margin-bottom: 2rem;
+    &__excerpt {
+      margin-bottom: 3rem;
     }
 
     &__title {
@@ -171,10 +171,8 @@
       line-height: 4rem;
     }
 
-    &__author {
-      display: inline-block;
-      font-size: 2rem;
-      vertical-align: text-bottom;
+    &__time {
+      margin-bottom: 1.6rem;
     }
   }
 }
@@ -196,15 +194,15 @@
 
   .post {
     &__content {
-      justify-content: space-evenly;
+      justify-content: space-around;
     }
 
     &__excerpt {
       display: block;
     }
 
-    &__meta {
-      margin-top: 1rem;
+    &__time {
+      margin-bottom: 3rem;
     }
   }
 

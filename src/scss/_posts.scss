@@ -69,18 +69,12 @@
     flex-direction: column;
   }
 
-  &__author,
   &__time {
     color: $red-color;
     display: inline-block;
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     font-style: oblique;
     font-weight: 600;
     text-transform: uppercase;
-  }
-
-  &__time {
-    margin-left: 4rem;
-    margin-top: 0.2rem;
   }
 }

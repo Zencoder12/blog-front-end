@@ -1,3 +1,5 @@
+import React from "react";
+
 const Loading = () => {
   return (
     <div className="loading loading__container">
@@ -7,4 +9,3 @@ const Loading = () => {
 };
 
 export default Loading;
-<div className="loading__container"></div>;

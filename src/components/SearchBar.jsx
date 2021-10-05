@@ -1,7 +1,7 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
 import { useHistory } from "react-router";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSearch } from "@fortawesome/free-solid-svg-icons";
 
 const SearchBar = () => {
   const history = useHistory();
@@ -26,7 +26,7 @@ const SearchBar = () => {
         className="search-bar__input"
         name={"searchValue"}
         onChange={handleChange}
-        placeholder="SEARCH"
+        placeholder="SEARCH BY TITLE FIRST WORD"
         value={data.searchValue}
       />
       <div className="search-bar__icon-container">
