@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
-import * as db from "../services/db";
-import { serverApi } from "../config.json";
+import { axiosInstance } from "../services/db";
 import Post from "./Post";
 import Menu from "./Menu";
 import Loading from "./Loading";
@@ -12,7 +11,7 @@ const Posts = () => {
   const [isLoaded, setLoaded] = useState(false);
 
   const fetchData = async () => {
-    const response = await db.axiosInstance.get(serverApi + "blog");
+    const response = await axiosInstance.get("blog/");
     setPosts(response.data);
     setLoaded(true);
   };

@@ -1,5 +1,6 @@
-import { serverApi } from "../config.json";
 import axios from "axios";
+
+const serverApi = process.env.REACT_APP_API_URL;
 
 // defining the basic axios object
 export const axiosInstance = axios.create({
@@ -19,6 +20,7 @@ axiosInstance.interceptors.response.use(
     return response;
   },
   async function (error) {
+    console.log(error.response.data);
     const originalRequest = error.config;
 
     // unexpected response
@@ -41,11 +43,12 @@ axiosInstance.interceptors.response.use(
     // new access token
     if (
       error.response.status === 401 &&
-      error.response.data.code === "token_not_valid"
+      error.response.data.code === "token_not_valid" &&
+      error.response.statusText === "Unauthorized"
     ) {
       const refreshToken = localStorage.getItem("refresh_token");
 
-      // first, check if refresh token live date didn't expire
+      // first, check if refresh token exists
       if (refreshToken) {
         const tokenParts = JSON.parse(
           Buffer.from(refreshToken.split(".")[1], "base64")
@@ -54,8 +57,9 @@ axiosInstance.interceptors.response.use(
         // exp date in token is expressed in seconds, while now() returns milliseconds:
         const now = Math.ceil(Date.now() / 1000);
 
+        // second, check if refresh token live time expired
         if (tokenParts.exp > now) {
-          return axiosInstance
+          axiosInstance
             .post("/token/refresh/", { refresh: refreshToken })
             .then((response) => {
               localStorage.setItem("access_token", response.data.access);
@@ -65,21 +69,21 @@ axiosInstance.interceptors.response.use(
               originalRequest.headers["Authorization"] =
                 "JWT " + response.data.access;
 
-              return axiosInstance(originalRequest);
+              // return axiosInstance(originalRequest);
             })
             .catch((err) => {
-              console.log(err);
+              window.location.href = "/login";
             });
         } else {
           alert(
-            "Looks like your session expired. Please login again. Redirecting..."
+            "2- Looks like your session expired. Please login again. Redirecting..."
           );
           console.log("Refresh token is expired", tokenParts.exp, now);
           window.location.href = "/login/";
         }
       } else {
         alert(
-          "Looks like your session expired. Please login again. Redirecting..."
+          "3 - Looks like your session expired. Please login again. Redirecting..."
         );
         window.location.href = "/login/";
       }

@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import { useLocation } from "react-router";
 import * as db from "../services/db";
-import { serverApi } from "../config.json";
 import Post from "./Post";
 import Loading from "./Loading";
 
@@ -13,13 +12,11 @@ const SearchResultsPage = () => {
 
   const fetchData = async () => {
     const response = await db.axiosInstance.get(
-      serverApi + "blog/search/" + location.search
+      "blog/search/" + location.search
     );
     setPosts(response.data);
     setLoaded(true);
   };
-
-  //TODO: implement a results not found page
 
   useEffect(() => {
     fetchData();
