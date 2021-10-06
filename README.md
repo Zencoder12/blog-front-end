@@ -17,8 +17,9 @@ Login with the demo user:
 email address: admin@heroku.com
 password: 1234melbourne
 
-- You can use the interative menu to create a new post
-- Edit and deletion functions are enabled only inside individual post page
-- You can make a simple search query
+- You can use the interative menu to create a new post.
+- Edit and deletion functions are enabled only inside individual post page.
+- Edit and deletion functions are available only if you are logged in.
+- You can make a simple search query.
 
 THANK YOU AND HAVE FUN:)
