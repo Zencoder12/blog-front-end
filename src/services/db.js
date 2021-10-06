@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const serverApi = "https://galleryblog-backend.herokuapp.com/api/";
+const serverApi = process.env.REACT_APP_API_URL;
 
 console.log(serverApi);
 

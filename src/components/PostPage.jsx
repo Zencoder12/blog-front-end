@@ -75,7 +75,7 @@ const PostPage = () => {
           <div className="post-page post-page__text-container">
             <p className="post-page post-page__content">{data.post.content}</p>
             <h3 className="post-page post-page__author">
-              -- {data.post.author} --
+              -- --{/* -- {data.post.author} -- */}
             </h3>
           </div>
           <div className="post-page post-page__image-container">
