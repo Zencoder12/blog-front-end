@@ -1,11 +1,12 @@
 .loading {
   &__container {
     margin: 4rem auto 0 auto;
-    max-width: 400px;
+    max-width: 600px;
     text-align: center;
   }
 
   & p {
     font-size: 3rem;
+    margin-top: 2rem;
   }
 }
