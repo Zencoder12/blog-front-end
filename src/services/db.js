@@ -2,6 +2,8 @@ import axios from "axios";
 
 const serverApi = process.env.REACT_APP_API_URL;
 
+console.log(serverApi);
+
 // defining the basic axios object
 export const axiosInstance = axios.create({
   baseURL: serverApi,
