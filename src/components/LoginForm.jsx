@@ -39,10 +39,10 @@ const LoginForm = () => {
         password: account.password,
       })
       .then((res) => {
-        localStorage.setItem("access_token", res.data.access);
-        localStorage.setItem("refresh_token", res.data.refresh);
+        sessionStorage.setItem("access_token", res.data.access);
+        sessionStorage.setItem("refresh_token", res.data.refresh);
         axiosInstance.defaults.headers["Authorization"] =
-          "JWT " + localStorage.getItem("access_token");
+          "JWT " + sessionStorage.getItem("access_token");
 
         userServices.setUserId();
 

@@ -13,10 +13,10 @@ const Logout = () => {
   const handleLogout = async () => {
     try {
       axiosInstance.post("user/logout/blacklist/", {
-        refresh_token: localStorage.getItem("refresh_token"),
+        refresh_token: sessionStorage.getItem("refresh_token"),
       });
-      localStorage.removeItem("access_token");
-      localStorage.removeItem("refresh_token");
+      sessionStorage.removeItem("access_token");
+      sessionStorage.removeItem("refresh_token");
       userServices.removeUserId();
       axiosInstance.defaults.headers["Authorization"] = null;
 

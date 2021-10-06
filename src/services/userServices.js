@@ -1,17 +1,17 @@
 import jwtDecode from "jwt-decode";
 
 function setUserId() {
-  const jwtAccessToken = localStorage.getItem("access_token");
+  const jwtAccessToken = sessionStorage.getItem("access_token");
   const tokenData = JSON.stringify(jwtDecode(jwtAccessToken).user_id);
-  localStorage.setItem("userId", tokenData);
+  sessionStorage.setItem("userId", tokenData);
 }
 
 function getUserId() {
-  return localStorage.getItem("userId");
+  return sessionStorage.getItem("userId");
 }
 
 function removeUserId() {
-  localStorage.removeItem("userId");
+  sessionStorage.removeItem("userId");
 }
 
 export { setUserId, getUserId, removeUserId };
