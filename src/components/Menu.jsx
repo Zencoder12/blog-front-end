@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { useHistory } from "react-router";
-import ArrowMenuIcon from "../subcomponents/menu/menu_icons/ArrowMenuIcon";
-import PlusMenuIcon from "../subcomponents/menu/menu_icons/PlusMenuIcon";
-import MinusMenuIcon from "../subcomponents/menu/menu_icons/MinusMenuIcon";
-import PenMenuIcon from "../subcomponents/menu/menu_icons/PenMenuIcon";
+import ArrowMenuIcon from "./subcomponents/menu/menu_icons/ArrowMenuIcon";
+import PlusMenuIcon from "./subcomponents/menu/menu_icons/PlusMenuIcon";
+import MinusMenuIcon from "./subcomponents/menu/menu_icons/MinusMenuIcon";
+import PenMenuIcon from "./subcomponents/menu/menu_icons/PenMenuIcon";
 
 const Menu = ({ isMainPage, toDeletePost, toEditPost }) => {
   const history = useHistory();

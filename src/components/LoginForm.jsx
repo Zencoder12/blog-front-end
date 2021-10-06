@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { NavLink, useHistory } from "react-router-dom";
 import { axiosInstance } from "../services/db";
 import * as userServices from "../services/userServices";
-import FormGroup from "../subcomponents/form/FormGroup";
+import FormGroup from "./subcomponents/form/FormGroup";
 import Joi from "joi-browser";
 import { toast } from "react-toastify";
 

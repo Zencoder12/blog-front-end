@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router";
 import { axiosInstance } from "../services/db";
-import FormGroup from "../subcomponents/form/FormGroup";
+import FormGroup from "./subcomponents/form/FormGroup";
 import Joi from "joi-browser";
 import { toast } from "react-toastify";
 
