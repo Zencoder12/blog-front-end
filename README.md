@@ -2,6 +2,10 @@
 
 This is a simple blog APP made with react and django. It's objective is for demo purposes only.
 
+## APP url
+
+https://galleryblog-frontend.netlify.app
+
 ## Django backend repository:
 
 https://github.com/Zencoder12/blog-backend
